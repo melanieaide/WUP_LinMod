@@ -35,10 +35,30 @@ data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_str
 
 ### scatterplot
 
+```{r}
+plot(SIMS~ARM, data=data)
+model.1=lm(SIMS~ARM, data=data)
+abline(model.1)
+```
+
+This scatter plot shows that simulated strength.
+
 ### Numerical results
 
+```{r}
+cor(SIMS~ARM,data=data)
+```
+
+This shows moderate positive correlation between SIMS score and ARM strength.
 
 ### Inferential  (Build model.1)
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+summary.lm(model.1)
+```
+
+
 
 #### Predict at target point
 
