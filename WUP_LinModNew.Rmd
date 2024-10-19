@@ -125,7 +125,7 @@ model.3 = lm(SIMS~ARM+GRIP, data=data)
 summary(model.3)
 ```
 
-Both thr ARM strenght and GRIP strength
+Both the ARM strength and GRIP strength's p-values are less than 0.05. They help predict SIMS score.
 
 ### Numerical results (cor)
 
@@ -135,13 +135,18 @@ cor(data)
 
 This shows that SIMS correlates with GRIP and ARM.
 
+
 ### Inferential  (Build 2-dimentional model.3)
 
 #### predict model.3 at target point
   
+
+
 ```{r}
-predict(model.3, targetPoint,interval='prediction')
+predict(model.3,targtPoint,interval='prediction')
 ```
+
+
 
 
 ## Comparing nested models ANOVA Test
@@ -156,7 +161,17 @@ anova_result <- anova(model.1, model.3)
 print(anova_result)
 ```
 
+The p-value is less than 0.05, meaning that there is a difference between models 1 and 3. Making model 2 better.
+
 ```{r}
 anova_result <- anova(model.2, model.3)
 print(anova_result)
 ```
+The p-value is less than 0.05, meaning that there is a difference in models 2 and 3. Making model 2 better.
+
+```{r}
+anova_result <- anova(model.1, model.2)
+print(anova_result)
+```
+
+There is no difference between model 1 and 2. 
